@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "你好 Flutter",
-      home: Scaffold(appBar: AppBar(title: Text("这是 appbar")), body: MyHome()),
+      home: MyHome(),
     );
   }
 }
@@ -19,14 +19,17 @@ class MyApp extends StatelessWidget {
 class MyHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: RaisedButton(
-        child: Text('去登录'),
-        onPressed: () {
-          //不定义路由的方式跳转
-          //Navigator 不能直接在 MaterialApp 里使用
-          Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new LoginPage()));
-        },
+    return Scaffold(
+      appBar: AppBar(title: Text("这是主页")),
+      body: Center(
+        child: RaisedButton(
+          child: Text('去登录'),
+          onPressed: () {
+            //不定义路由的方式跳转
+            //Navigator 不能直接在 MaterialApp 里使用
+            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new LoginPage()));
+          },
+        ),
       ),
     );
   }
